@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# functions and parameters
+
+# usage: prints the syntax/usage of the command
+usage () {
+echo "Usage: \"$script bgcolor fgcolor\" or"
+echo " \"$script\" with no arguments for a black bg/white fg"
+}
+# lterm: prints an xterm local to the machine it is running on with
+# the bg and fg colors passed to it
+lterm () {
+# Get the OS name
+os=`uname -s`
+if [ $os == Linux ]
+then
+export PS1="\u@\h:\w> "
+elif [ $os == SunOS ]
+then
+# On Solaris, set the erase character to "^H" using "^V" in front of it
+stty erase ^H
+export PS1="`logname`@`uname -n`:\$PWD> "
+fi
+# Get the local path of xterm
+xterm=`which xterm`
+$xterm -bg $1 -fg $2 -sb -sl 500 -font -*-fixed-bold-*-*-*-18-*-*-*-*-*-*-* &
+}
+
+# MAIN PROGRAM
+
+# Currently accepted colors
+# Must have at least one space at beginning and end of colors so
+# the first and last colors can be matched using my comparison
+COLORS=" red green blue black white orange purple violet \
+yellow gold grey beige cyan magenta "
+
+# Strip the pathname from of the script name
+script=`basename $0`
+
+# Make sure the number of arguments are either 0 or 2
+if [ $# -gt 2 -o $# -eq 1 ]
+then
+echo "Incorrect number of arguments. Must be either 0 or 2."
+usage
+# If the number of arguments is 0, then use the default setting of black bg/white fg
+elif [ $# -eq 0 ]
+then
+lterm black white
+# Make sure first argument/color is an acceptable color
+elif [[ $COLORS != *" $1 "* ]]
+then
+echo "$1 is NOT a curently accepted color"
+usage
+# Make sure second argument/color is an acceptable color
+elif [[ $COLORS != *" $2 "* ]]
+then
+echo "$2 is NOT a curently accepted color"
+usage
+# Make sure first and second colors are not the same
+elif [ "$1" == "$2" ]
+then
+usage
+echo " BUT -> \"bgcolor\" and \"fgcolor\" CANNOT BE SAME"
+# All argument and color requirments have been met
+else
+lterm $1 $2
+fi
