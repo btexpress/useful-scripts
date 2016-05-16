@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+lterm=/home/wtooles/bin/lterm
+#
+$lterm green black # puppet master
+$lterm yellow black # puppet client
+$lterm cyan black # puppet client
+$lterm purple white # puppet client
+$lterm red white # puppet client
