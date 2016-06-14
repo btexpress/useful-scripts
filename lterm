@@ -31,7 +31,7 @@ $xterm -bg $1 -fg $2 -sb -sl 500 -font -*-fixed-bold-*-*-*-18-*-*-*-*-*-*-* &
 # Currently accepted colors
 # Must have at least one space at beginning and end of colors so
 # the first and last colors can be matched using my comparison
-COLORS=" brown red green blue black white orange purple violet \
+COLORS=" DarkMagenta grey15 brown red green blue black white orange purple violet \
 yellow gold grey beige cyan magenta "
 
 # Strip the pathname from of the script name
