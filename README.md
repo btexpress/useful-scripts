@@ -15,7 +15,7 @@
 1ca2cf07d2e98a1e4e6c3bf1c94e125b  change_term_colors
 7d51d05a5dbd7c77ff484da059b0daab  lterm
 03b46877fb04ab6aaf335ab336edebbc  puppet_lterms
-85420c3441a6223ff96186b94fae9b55  puppet_vm_lterm
+85420c3441a6223ff96186b94fae9b55  puppet_vm_lterm  
 059cc06b46ad8f1cd7bd3ed659f7d16b  README.md
 b91ccd9a19dd13d8798127413d3f59d2  timestamp.sh
 [wtooles:~/bin] master ± sha1sum *
