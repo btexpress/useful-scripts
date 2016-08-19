@@ -1,7 +1,7 @@
 # useful-scripts
 
 ## These are just general useful scripts
-
+```
 [wtooles:~/bin] master ± timestamp.sh
 2016-08-17-02.29.33
 [wtooles:~/bin] master ± sum *
@@ -26,3 +26,4 @@ d0166f0f5dd899d5a3e2b25e3b1e05ffdc572a16  change_term_colors
 aac1d77ef9d392140dae5adf452fa1941cd8123c  README.md
 8a59306639c541d14c73d5b4c28eb7b70364ab68  timestamp.sh
 [wtooles:~/bin] master ± timestamp.sh
+```
