@@ -6,7 +6,8 @@ execute pathogen#helptags()
 " Recommended general settings START
 syntax on
 filetype plugin indent on
-set tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent number
+set tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4
+set autoindent number cursorline showmatch
 " Recommended general settings END
 
 " ===========================================================
