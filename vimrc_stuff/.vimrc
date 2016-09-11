@@ -2,6 +2,11 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 "
+"
+" Change default colors to 'torte' setting
+colors torte
+"
+"
 
 " Recommended general settings START
 syntax on
