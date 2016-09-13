@@ -6,6 +6,11 @@ execute pathogen#helptags()
 " Change default colors to 'torte' setting
 colors torte
 "
+" Change default font for gvim
+if has('gui_running')
+    set guifont=Monospace\ 12
+endif
+"
 "
 
 " Recommended general settings START
