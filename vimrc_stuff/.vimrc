@@ -54,3 +54,21 @@ let g:syntastic_check_on_wq = 0
 " ===========================================================
 " syntastic BLOCK END   =====================================
 " ===========================================================
+
+" ===========================================================
+" Tab movement stuff BLOCK BEGIN   ===================================
+" ===========================================================
+" With the following mappings (which require gvim), you can press Ctrl-Left or
+" Ctrl-Right to go to the previous or next tabs, and can press Alt-Left or
+" Alt-Right to move the current tab to the left or right.
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+"
+nnoremap <C-Up> :tabnew<CR>
+nnoremap <C-Down> :tabclose<CR>
+nnoremap <F2> :tabonly<CR>
+" ===========================================================
+" Tab movement stuff BLOCK END   ===================================
+" ===========================================================
