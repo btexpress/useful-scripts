@@ -1,0 +1,13 @@
+time tree -L 1 .
+.
+├── bin
+├── logs
+├── README2.md
+├── README.md
+└── vimrc_stuff
+
+3 directories, 2 files
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.000s

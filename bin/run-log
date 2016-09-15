@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+#
+# NAME: run-log
+#
+# SYNOPSIS:  run-log -  run a linux command w/ or w/o arguments and create 
+#                       a log file of the output INCLUDING the linux command
+#                       that created it either in either a new or existing logs 
+#                       directory in which the linux command was run by default 
+#                       or if "-y" is passed. It is created in the directory in 
+#                       which the linux command was run if "-n" no option is
+#                       passed
+
+# functions and parameters
+
+# usage: prints the syntax/usage of the command
+
+usage () {
+    echo "Usage: \"$(basename $0) [-y|-n|-h] 'linux command w/ or w/o arguments'\""
+    echo "  (w/o any quotes)"
+    exit 1
+}
+
+create_logs_directory () {
+    logsdir=$logsdir/"logs"
+    mkdir -p $logsdir
+}
+
+# MAIN PROGRAM
+
+if [ $# -eq 0 ]
+then
+    usage
+fi
+
+#scriptpath=$(dirname $0)
+#script=$(basename $0)
+args=("$@")
+#echo $scriptpath
+#echo $script $@
+#echo $script ${args[0]} ${args[1]} 
+
+# Set value of logsdir to the environment variable for the current
+# working directory $PWD
+logsdir=$PWD
+cmd=${args[0]}
+
+if [ ${args[0]} == "-y" ] || [ ${args[0]} == "-n" ] || [ ${args[0]} == "-h" ]
+then
+    if [ $# -eq 1 ] || [ ${args[0]} == "-h" ]
+    then
+        usage
+    elif [ ${args[0]} == "-y" ]
+    then
+        echo "args0 is -y"
+        create_logs_directory
+#       Remove this artument from the array
+        shift
+        cmd=${args[1]}
+    else # ${args[0]} == "-n"
+        echo "args0 is -n"
+#       Remove this artument from the array
+        shift
+        cmd=${args[1]}
+    fi
+
+else
+    create_logs_directory
+fi
+
+echo "Current value of logsdir is $logsdir."
+
+# Run command and create logfile similar to the command below
+# (time vagrant up) |& tee logs/vagrant-up-log-`timestamp.sh`
+#
+
+echo "$cmd"
+timestamp=`timestamp.sh`
+echo "time $@" > $logsdir/$cmd-log-$timestamp
+#sleep 1
+(time $@) |& tee -a $logsdir/$cmd-log-$timestamp
