@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+#
+# NAME: sudo
+#
+# SYNOPSIS:  sudo - run command in cygwin on windows with 
+#                   real elevated privileges
+
+cygstart --action=runas "$@"
