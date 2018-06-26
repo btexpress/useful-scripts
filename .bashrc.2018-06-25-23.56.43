@@ -132,7 +132,9 @@ export LESSOPEN='|~/.lessfilter %s'
 # Think about removing the stuff below
 export AWS_KEYS=$HOME/Downloads/aws_keys
 #
-export AWS_PROFILE=etsintegration
+export AWS_ACCESS_KEY_ID='AKIAIUTQ56GI5JIJJNNQ'
+export AWS_SECRET_ACCESS_KEY='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'
+export AWS_DEFAULT_REGION=us-west-2
 #
 export ANSIBLE_HOSTS=/home/wtooles/git-repos/ansible-bt/ec2.py
 #export ANSIBLE_HOSTS=~/git-repos/ansible-bt/ec2.py
