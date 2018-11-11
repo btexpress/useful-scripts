@@ -139,5 +139,16 @@ export ANSIBLE_HOSTS=/home/wtooles/git-repos/ansible-bt/ec2.py
 export EC2_INI_PATH=/home/wtooles/git-repos/ansible-bt/ec2.ini
 #export EC2_INI_PATH=~/git-repos/ansible-bt/ec2.ini
 
+# Need to figure out how for below environment variables to check the contents first, then
+# add extra content if needed; now it will keep adding on to the variables with each 'xterm' 
+# invocation
+
 # added by Anaconda3 installer
 export PATH="/home/wtooles/anaconda3/bin:$PATH"
+
+# Set MANPATH to check if it is not set first
+if [ -z "${MANPATH}" ]; then
+    MANPATH="/usr/man"
+fi
+MANPATH="${MANPATH}:/usr/man:/usr/share/man:/usr/local/share/man"
+export MANPATH
